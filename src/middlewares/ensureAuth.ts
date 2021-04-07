@@ -1,6 +1,5 @@
 import { NextFunction, Request, Response } from "express";
 import { verify } from "jsonwebtoken";
-import auth from "../config/auth";
 
 import AppError from "../errors/AppError";
 
@@ -24,14 +23,15 @@ export default function ensureAuth(
   const [, token] = authHeader.split(" ");
 
   try {
-    const decoded = verify(token, auth.jwt.secret);
+    const SECRET = process.env.SECRET || "";
+    const decoded = verify(token, SECRET);
 
     const { sub } = decoded as Token;
 
     request.user = {
       id: sub,
     };
-    
+
     return next();
   } catch {
     throw new AppError("Token JWT inválido", 401);
