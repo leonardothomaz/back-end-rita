@@ -1,4 +1,5 @@
 const compiled = process.env.compiled;
+console.log("url", process.env.DATABASE_URL, "compilado", compiled);
 
 module.exports = {
   type: "postgres",

@@ -1,3 +1,4 @@
+import dotenv from "dotenv-safe";
 import "reflect-metadata";
 import express, { Request, Response, NextFunction } from "express";
 import "express-async-errors";
@@ -8,7 +9,7 @@ import routes from "./routes";
 import "./database";
 import AppError from "./errors/AppError";
 
-require("dotenv-safe").config();
+dotenv.config();
 
 const app = express();
 
@@ -33,5 +34,7 @@ app.use((err: Error, request: Request, response: Response, _: NextFunction) => {
 });
 
 app.listen(process.env.PORT || 3333, () => {
-  console.log("-----Servidor iniciado na porta 3333-----");
+  console.log(
+    `-----Servidor iniciado na porta ${process.env.PORT || 3333}-----`
+  );
 });
