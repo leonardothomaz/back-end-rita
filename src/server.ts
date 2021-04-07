@@ -9,7 +9,9 @@ import routes from "./routes";
 import "./database";
 import AppError from "./errors/AppError";
 
-dotenv.config();
+dotenv.config({
+  allowEmptyValues: true,
+});
 
 const app = express();
 
