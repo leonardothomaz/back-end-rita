@@ -4,7 +4,7 @@ import CreateUserService from "./../services/CreateUserService";
 const usersRouter = Router();
 
 usersRouter.post("/", async (request, response) => {
-  const { name, email, password } = request.body;
+  const { name, email, password, type, latitude, longitude } = request.body;
 
   const createUser = new CreateUserService();
 
@@ -12,11 +12,14 @@ usersRouter.post("/", async (request, response) => {
     name,
     email,
     password,
+    type,
+    latitude,
+    longitude,
   });
 
   // @ts-expect-error
   delete user.password;
-  
+
   return response.json(user);
 });
 

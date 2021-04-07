@@ -15,5 +15,6 @@ module.exports = {
   ],
   cli: {
     migrationsDir: `./src/database/migrations/`,
+    entitiesDir: `src/models`,
   },
 };
