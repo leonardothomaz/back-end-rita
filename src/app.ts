@@ -6,7 +6,7 @@ import cors from "cors";
 
 import routes from "./routes";
 
-import "./database";
+import './database';
 import AppError from "./errors/AppError";
 
 dotenv.config({

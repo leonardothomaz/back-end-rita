@@ -3,6 +3,11 @@ import AuthUserService from "./../services/AuthUserService";
 
 const authRouter = Router();
 
+interface Auth {
+  email: string;
+  password?: string;
+}
+
 authRouter.post("/", async (request, response) => {
   const { email, password } = request.body;
 
@@ -13,8 +18,9 @@ authRouter.post("/", async (request, response) => {
     password,
   });
 
-  // @ts-expect-error
-  delete user.password;
+  const typedUser: Auth = user;
+
+  delete typedUser.password;
 
   return response.json({ user, token });
 });
