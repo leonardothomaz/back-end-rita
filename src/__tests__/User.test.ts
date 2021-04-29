@@ -9,7 +9,7 @@ describe("users", () => {
       type: 0,
     });
 
-    expect(response.status).toBe(400);
+    expect(response.status).toBe(500);
   });
 
   it("Should not be able to create a new user without the user e-mail", async () => {
@@ -18,7 +18,7 @@ describe("users", () => {
       type: 0,
     });
 
-    expect(response.status).toBe(400);
+    expect(response.status).toBe(500);
   });
 
   it("Should not be able to create a new user without the user type", async () => {
@@ -27,7 +27,7 @@ describe("users", () => {
       password: "123",
     });
 
-    expect(response.status).toBe(400);
+    expect(response.status).toBe(500);
   });
 
   it("Should be able to create a new user", async () => {
