@@ -12,8 +12,6 @@ interface User {
   longitude: string;
 }
 
-
-
 usersRouter.post("/", async (request, response) => {
   const { name, email, password, type, latitude, longitude } = request.body;
 
