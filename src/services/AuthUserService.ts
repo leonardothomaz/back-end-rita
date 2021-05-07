@@ -28,7 +28,9 @@ class AuthUserService {
       throw new AppError("Usuário ou senha incorreto.", 401);
     }
 
-    const passwordMatched = await compare(password, user.password);
+    const pass = password || '';
+
+    const passwordMatched = await compare(pass, user.password);
 
     if (!passwordMatched) {
       throw new AppError("Usuário ou senha incorreto.", 401);

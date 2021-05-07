@@ -6,7 +6,7 @@ import cors from "cors";
 
 import routes from "./routes";
 
-import './database';
+import "./database";
 import AppError from "./errors/AppError";
 
 dotenv.config({
@@ -25,12 +25,12 @@ app.use((err: Error, request: Request, response: Response, _: NextFunction) => {
       status: "error",
       message: err.message,
     });
+  } else {
+    return response.status(500).json({
+      status: "error",
+      message: "Internal server error",
+    });
   }
-
-  return response.status(500).json({
-    status: "error",
-    message: "Internal server error",
-  });
 });
 
 export { app };
