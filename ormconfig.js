@@ -5,13 +5,9 @@ module.exports = {
   type: "postgres",
   url: process.env.DATABASE_URL,
   connectionString: process.env.DATABASE_URL,
-  entities: [
-    `./${compiled ? "dist" : "src"}/models/*.${compiled ? "js" : "ts"}`,
-  ],
+  entities: [__dirname + `/${process.env.DIR}/models/*{.ts,.js}`],
   migrations: [
-    `./${compiled ? "dist" : "src"}/database/migrations/*.${
-      compiled ? "js" : "ts"
-    }`,
+    __dirname + `/${process.env.DIR}/database/migrations/*{.ts,.js}`,
   ],
   cli: {
     migrationsDir: `./src/database/migrations/`,

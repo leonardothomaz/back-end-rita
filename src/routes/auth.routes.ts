@@ -22,7 +22,7 @@ authRouter.post("/", async (request, response) => {
 
   delete typedUser.password;
 
-  return response.json({ user, token });
+  return response.status(201).json({ user, token });
 });
 
 export default authRouter;
