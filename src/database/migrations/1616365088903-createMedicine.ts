@@ -63,7 +63,7 @@ export class createMedicine1616365088903 implements MigrationInterface {
     );
 
     await queryRunner.createForeignKey(
-      "personalmedicine",
+      "medicine",
       new TableForeignKey({
         name: "medicineUser",
         columnNames: ["user_id"],

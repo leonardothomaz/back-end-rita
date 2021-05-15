@@ -14,7 +14,7 @@ class Medicine {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
-  @Column()
+  @Column("uuid")
   user_id: string;
 
   @ManyToOne(() => User)
