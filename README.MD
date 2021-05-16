@@ -44,6 +44,7 @@
 Para testar ou utilizar esse projeto, por favor instale esses itens:
 
 - [Git](https://git-scm.com).
+- [Docker](https://www.docker.com/).
 - [Node.js](https://nodejs.org/en/).
 - [yarn](https://yarnpkg.com/) or [npm](https://www.npmjs.com/).
 
