@@ -1,10 +1,11 @@
 import { app } from "../app";
 import request from "supertest";
 
+const email = `${Math.random()}@${Math.random()}.com`;
 describe("Users", () => {
-  const email = `${Math.random()}@${Math.random()}.com`;
   it("Should not be able to create a new user without the user password", async () => {
     const response = await request(app).post("/users").send({
+      name: "test",
       email: email,
       type: "0",
     });
@@ -14,6 +15,7 @@ describe("Users", () => {
 
   it("Should not be able to create a new user without the user e-mail", async () => {
     const response = await request(app).post("/users").send({
+      name: "test",
       password: "123",
       type: "0",
     });
@@ -23,6 +25,7 @@ describe("Users", () => {
 
   it("Should not be able to create a new user without the user type", async () => {
     const response = await request(app).post("/users").send({
+      name: "test",
       email: email,
       password: "123",
     });
@@ -32,6 +35,7 @@ describe("Users", () => {
 
   it("Should be able to create a new user", async () => {
     const response = await request(app).post("/users").send({
+      name: "test",
       email: email,
       password: "123",
       type: "0",
@@ -42,6 +46,7 @@ describe("Users", () => {
 
   it("Should not be able to create a new user with exists email", async () => {
     const response = await request(app).post("/users").send({
+      name: "test",
       email: email,
       password: "123",
       type: "0",
@@ -70,7 +75,7 @@ describe("Authentication", () => {
 
   it("Should be able to create a new authenticate", async () => {
     const response = await request(app).post("/auth").send({
-      email: "teste@test.com",
+      email: email,
       password: "123",
     });
 

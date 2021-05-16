@@ -5,12 +5,12 @@ import AppError from "../errors/AppError";
 import User from "./../models/User";
 
 interface Request {
-  name: string;
+  name?: string;
   email: string;
   password: string;
   type: string;
-  latitude: string;
-  longitude: string;
+  latitude?: string;
+  longitude?: string;
 }
 
 class CreateUserService {
@@ -19,8 +19,8 @@ class CreateUserService {
     email,
     password,
     type,
-    latitude,
-    longitude,
+    latitude = '',
+    longitude = '',
   }: Request): Promise<User> {
     const usersRepository = getRepository(User);
 
