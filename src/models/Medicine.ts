@@ -4,12 +4,22 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  ManyToOne,
+  JoinColumn,
 } from "typeorm";
+import User from "./User";
 
 @Entity("medicine")
 class Medicine {
   @PrimaryGeneratedColumn("uuid")
   id: string;
+
+  @Column("uuid")
+  user_id: string;
+
+  @ManyToOne(() => User)
+  @JoinColumn({ name: "user_id" })
+  user: User;
 
   @Column()
   name: string;
@@ -19,6 +29,12 @@ class Medicine {
 
   @Column()
   laboratory: string;
+
+  @Column()
+  startedhour: string;
+
+  @Column()
+  intakeinterval: string;
 
   @CreateDateColumn()
   created_at: Date;

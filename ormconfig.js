@@ -5,6 +5,7 @@ module.exports = {
   type: "postgres",
   url: process.env.DATABASE_URL,
   connectionString: process.env.DATABASE_URL,
+  synchronize: true,
   entities: [__dirname + `/${process.env.DIR}/models/*{.ts,.js}`],
   migrations: [
     __dirname + `/${process.env.DIR}/database/migrations/*{.ts,.js}`,

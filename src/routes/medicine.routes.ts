@@ -16,14 +16,18 @@ medicineRouter.get("/", ensureAuth, async (request, response) => {
 });
 
 medicineRouter.post("/", ensureAuth, async (request, response) => {
-  const { name, dosage, laboratory } = request.body;
+  const { user_id, name, dosage, laboratory, startedhour, intakeinterval } =
+    request.body;
 
   const createMedicine = new CreateMedicineService();
 
   const medicine = await createMedicine.execute({
+    user_id,
     name,
     dosage,
     laboratory,
+    startedhour,
+    intakeinterval,
   });
 
   return response.json(medicine);
