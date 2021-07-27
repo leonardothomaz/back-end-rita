@@ -1,6 +1,6 @@
-import { getRepository } from "typeorm";
+import { getRepository } from 'typeorm';
 
-import Medicine from "./../models/Medicine";
+import Medicine from './../models/Medicine';
 
 interface Request {
   user_id: string;

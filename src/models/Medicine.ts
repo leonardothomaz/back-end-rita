@@ -6,19 +6,19 @@ import {
   UpdateDateColumn,
   ManyToOne,
   JoinColumn,
-} from "typeorm";
-import User from "./User";
+} from 'typeorm';
+import User from './User';
 
-@Entity("medicine")
+@Entity('medicine')
 class Medicine {
-  @PrimaryGeneratedColumn("uuid")
+  @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column("uuid")
+  @Column('uuid')
   user_id: string;
 
   @ManyToOne(() => User)
-  @JoinColumn({ name: "user_id" })
+  @JoinColumn({ name: 'user_id' })
   user: User;
 
   @Column()

@@ -1,5 +1,5 @@
-import { Router } from "express";
-import AuthUserService from "./../services/AuthUserService";
+import { Router } from 'express';
+import AuthUserService from './../services/AuthUserService';
 
 const authRouter = Router();
 
@@ -8,7 +8,7 @@ interface Auth {
   password?: string;
 }
 
-authRouter.post("/", async (request, response) => {
+authRouter.post('/', async (request, response) => {
   const { email, password } = request.body;
 
   const authUserService = new AuthUserService();

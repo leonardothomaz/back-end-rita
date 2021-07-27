@@ -1,10 +1,10 @@
-import { compare } from "bcryptjs";
-import { sign } from "jsonwebtoken";
-import { getRepository } from "typeorm";
+import { compare } from 'bcryptjs';
+import { sign } from 'jsonwebtoken';
+import { getRepository } from 'typeorm';
 
-import AppError from "../errors/AppError";
+import AppError from '../errors/AppError';
 
-import User from "./../models/User";
+import User from './../models/User';
 
 interface Request {
   email: string;
@@ -25,7 +25,7 @@ class AuthUserService {
     });
 
     if (!user) {
-      throw new AppError("Usuário ou senha incorreto.", 401);
+      throw new AppError('Usuário ou senha incorreto.', 401);
     }
 
     const pass = password || '';
@@ -33,7 +33,7 @@ class AuthUserService {
     const passwordMatched = await compare(pass, user.password);
 
     if (!passwordMatched) {
-      throw new AppError("Usuário ou senha incorreto.", 401);
+      throw new AppError('Usuário ou senha incorreto.', 401);
     }
 
     const SECRET = process.env.SECRET || '';

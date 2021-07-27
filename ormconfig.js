@@ -1,8 +1,8 @@
 const compiled = process.env.compiled;
-console.log("url", process.env.DATABASE_URL, "compilado", compiled);
+console.log('url', process.env.DATABASE_URL, 'compilado', compiled);
 
 module.exports = {
-  type: "postgres",
+  type: 'postgres',
   url: process.env.DATABASE_URL,
   connectionString: process.env.DATABASE_URL,
   synchronize: true,
