@@ -1,5 +1,5 @@
-import { Router } from "express";
-import CreateUserService from "./../services/CreateUserService";
+import { Router } from 'express';
+import CreateUserService from './../services/CreateUserService';
 
 const usersRouter = Router();
 
@@ -12,7 +12,7 @@ interface User {
   longitude: string;
 }
 
-usersRouter.post("/", async (request, response) => {
+usersRouter.post('/', async (request, response) => {
   const { name, email, password, type, latitude, longitude } = request.body;
 
   const createUser = new CreateUserService();

@@ -1,7 +1,7 @@
-import { NextFunction, Request, Response } from "express";
-import { verify } from "jsonwebtoken";
+import { NextFunction, Request, Response } from 'express';
+import { verify } from 'jsonwebtoken';
 
-import AppError from "../errors/AppError";
+import AppError from '../errors/AppError';
 
 interface Token {
   iat: number;
@@ -12,18 +12,18 @@ interface Token {
 export default function ensureAuth(
   request: Request,
   response: Response,
-  next: NextFunction
+  next: NextFunction,
 ): void {
   const authHeader = request.headers.authorization;
 
   if (!authHeader) {
-    throw new AppError("Token JWT não informado.", 401);
+    throw new AppError('Token JWT não informado.', 401);
   }
 
-  const [, token] = authHeader.split(" ");
+  const [, token] = authHeader.split(' ');
 
   try {
-    const SECRET = process.env.SECRET || "";
+    const SECRET = process.env.SECRET || '';
     const decoded = verify(token, SECRET);
 
     const { sub } = decoded as Token;
@@ -34,6 +34,6 @@ export default function ensureAuth(
 
     return next();
   } catch {
-    throw new AppError("Token JWT inválido", 401);
+    throw new AppError('Token JWT inválido', 401);
   }
 }
